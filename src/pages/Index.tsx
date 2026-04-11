@@ -5,12 +5,14 @@ import MemoriesSection from "@/components/MemoriesSection";
 import LessonsSection from "@/components/LessonsSection";
 import FinalSection from "@/components/FinalSection";
 import MusicToggle from "@/components/MusicToggle";
+import PetalParticles from "@/components/PetalParticles";
 
 const Index = () => {
   const [entered, setEntered] = useState(false);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      <PetalParticles />
       <MusicToggle />
       {!entered ? (
         <LandingSection onEnter={() => setEntered(true)} />
