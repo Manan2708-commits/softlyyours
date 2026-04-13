@@ -7,8 +7,8 @@ interface StepProps {
 
 const memories = [
   {
-    front: "A sky that turned pink",
-    back: "That evening we spent talking until the sky turned pink, forgetting everything else existed.",
+    front: "I still miss those simple car rides with you.",
+    back: "Where every moment felt easy and real. 💛",
     icon: Cloud,
     gradient: "from-rose-light/70 to-lavender/40",
     backGradient: "from-rose/20 to-lavender-deep/20",

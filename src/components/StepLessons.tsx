@@ -8,7 +8,7 @@ interface StepProps {
 const lessons = [
   {
     question: "What did I learn about myself?",
-    answer: "I've understood where I went wrong — and stopped running from it.",
+    answer: "I've learned to stay patient and calm, and truly understand where I went wrong.",
     icon: Leaf,
     color: "text-rose",
     bg: "bg-rose-light/50",

@@ -47,11 +47,11 @@ const LandingSection = ({ onEnter }: LandingSectionProps) => {
           <div className="mt-14 animate-fade-up">
             <button
               onClick={onEnter}
-              className="group relative px-10 py-4 rounded-full bg-gradient-to-r from-rose/20 via-lavender/20 to-peach/20 border border-rose/30 text-foreground font-light text-sm tracking-widest uppercase hover:from-rose/30 hover:via-lavender/30 hover:to-peach/30 transition-all duration-700 glow-rose"
+              className="group relative px-10 py-4 rounded-full bg-transparent bg-gradient-to-r from-rose/20 via-lavender/20 to-peach/20 border border-rose/30 text-foreground font-light text-sm tracking-widest uppercase hover:from-rose/30 hover:via-lavender/30 hover:to-peach/30 transition-all duration-700 glow-rose backdrop-blur-sm"
             >
               <span className="flex items-center gap-2">
                 <Heart className="w-4 h-4 text-rose group-hover:animate-heartbeat" />
-                Begin this journey
+                Begin this journey.
                 <Sparkles className="w-3 h-3 text-gold opacity-0 group-hover:opacity-100 transition-opacity" />
               </span>
             </button>

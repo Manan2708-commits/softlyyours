@@ -1,16 +1,30 @@
 import { useState, useEffect } from "react";
-import { Heart, Sparkles, Mail, MessageCircle } from "lucide-react";
+import { Heart, Sparkles } from "lucide-react";
 
-const FinalSection = () => {
+interface FinalSectionProps {
+  onNote: () => void;
+}
+
+const FinalSection = ({ onNote }: FinalSectionProps) => {
   const [showContent, setShowContent] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const [countdown, setCountdown] = useState(5);
 
   useEffect(() => {
     setTimeout(() => setShowContent(true), 300);
     setTimeout(() => setShowButton(true), 2000);
     setTimeout(() => setShowConfetti(true), 500);
+    setTimeout(() => setShowPopup(true), 5000);
   }, []);
+
+  useEffect(() => {
+    if (!showPopup) return;
+    if (countdown === 0) return;
+    const t = setTimeout(() => setCountdown(c => c - 1), 1000);
+    return () => clearTimeout(t);
+  }, [showPopup, countdown]);
 
   return (
     <div className="h-screen flex items-center justify-center px-6 relative overflow-hidden">
@@ -54,10 +68,10 @@ const FinalSection = () => {
             </div>
 
             <h2 className="font-serif text-3xl md:text-4xl font-light leading-relaxed mb-3 animate-fade-up delay-300">
-              I don't expect anything from you.
+              No pressure at all…
             </h2>
             <h2 className="font-serif text-3xl md:text-4xl font-light leading-relaxed mb-10 animate-fade-up delay-500">
-              I just wanted to say <span className="text-gradient font-medium">I'm sorry.</span>
+              just a quiet attempt to say  <span className="text-gradient font-medium">I’m really sorry.</span>
             </h2>
 
             <p className="text-muted-foreground font-light mb-14 leading-relaxed animate-fade-up delay-700 text-sm max-w-sm mx-auto">
@@ -68,15 +82,15 @@ const FinalSection = () => {
         )}
 
         {showButton && (
-          <div className="space-y-4 animate-bounce-in">
-            <a
-              href="mailto:"
+          <div className="space-y-4 animate-fade-up">
+            <button
+              onClick={onNote}
               className="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-gradient-to-r from-rose/15 via-lavender/15 to-peach/15 border border-rose/25 text-foreground font-light text-sm tracking-wider hover:from-rose/25 hover:via-lavender/25 hover:to-peach/25 transition-all duration-700 glow-rose"
             >
               <Sparkles className="w-4 h-4 text-gold" />
-              No pressure. Just a chance to reconnect.
+              Something I owe you.
               <Heart className="w-4 h-4 text-rose" />
-            </a>
+            </button>
 
             <div className="flex items-center justify-center gap-3 pt-4">
               <div className="h-px w-12 bg-gradient-to-r from-transparent to-rose/20" />
@@ -94,6 +108,28 @@ const FinalSection = () => {
           </div>
         )}
       </div>
+
+      {/* Popup after 5s */}
+      {showPopup && (
+        <div className="absolute inset-0 z-50 flex items-center justify-center px-6 animate-fade-up bg-background/60 backdrop-blur-sm">
+          <div className="w-full max-w-sm bg-card border border-rose/40 rounded-3xl p-8 shadow-2xl glow-rose text-center">
+            <div className="text-4xl mb-4">💌</div>
+            <p className="font-serif text-xl text-foreground font-light mb-2">
+              There's one last thing…
+            </p>
+            <p className="text-muted-foreground text-sm font-light mb-8 leading-relaxed">
+              Something I've been wanting to say for a while.
+            </p>
+            <button
+              onClick={onNote}
+              className="w-full py-4 rounded-full bg-gradient-to-r from-rose/40 via-lavender/40 to-peach/40 border border-rose/40 text-foreground font-light text-sm tracking-wider hover:from-rose/60 hover:via-lavender/60 hover:to-peach/60 transition-all duration-500 glow-rose flex items-center justify-center gap-2"
+            >
+              <Heart className="w-4 h-4 text-rose" />
+              Open it now
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

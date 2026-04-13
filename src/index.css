@@ -44,6 +44,7 @@
 
 @layer base {
   * { @apply border-border; }
+  button { -webkit-appearance: none; appearance: none; background: transparent; }
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-sans);
