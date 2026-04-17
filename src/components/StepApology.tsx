@@ -8,7 +8,7 @@ interface StepProps {
 
 const paragraphs = [
   "I've carried these words for a long time now. A whole year has passed, and not a day went by without me thinking about what happened between us.",
-  "I'm not here to make excuses or shift blame. I hurt you, and I take full responsibility for that.",
+  "I'm not here to make excuses. I hurt you, and I take full responsibility for that.",
   "I don't miss just the comfort of having someone. I miss you — your laugh, the way you saw things, the conversations that made everything feel lighter.",
 ];
 

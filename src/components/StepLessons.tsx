@@ -16,7 +16,7 @@ const lessons = [
   },
   {
     question: "How have I changed?",
-    answer: "I've learned that patience isn't waiting for things to fix themselves, it's doing the quiet work.",
+    answer: "I’ve grown into someone who understands that real patience is about quietly working through things, not just waiting for them to change.",
     icon: Sun,
     color: "text-gold",
     bg: "bg-gold-light/50",
@@ -24,7 +24,7 @@ const lessons = [
   },
   {
     question: "Why am I telling you this?",
-    answer: "Because saying sorry isn't about me feeling better — it's about you knowing the truth.",
+    answer: "Because you matter to me, and that’s why I’ll keep trying to make you understand how I truly feel.",
     icon: Feather,
     color: "text-lavender-deep",
     bg: "bg-lavender/50",
@@ -116,4 +116,3 @@ const StepLessons = ({ onNext }: StepProps) => {
 };
 
 export default StepLessons;
-
